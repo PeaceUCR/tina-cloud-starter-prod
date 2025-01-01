@@ -5,6 +5,11 @@ import { Content } from "./content";
 import { Features } from "./features";
 import { Testimonial } from "./testimonial";
 import { WebstoreHeader } from "./webstoreHeader";
+import { WebstoreFooter } from "./webstoreFooter";
+import { AppBanner } from "./appBanner";
+import { FeatureProducts } from "./featureProducts";
+import { LiveShows } from "./liveShows";
+import { ShopByCollection } from "./shopByCollection";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
   return (
@@ -34,6 +39,16 @@ const Block = (block: PageBlocks) => {
       return <Testimonial data={block} />;
     case "PageBlocksWebstoreHeader":
       return <WebstoreHeader data={block} />;
+    case "PageBlocksFeatureProducts":
+      return <FeatureProducts data={block} />;
+    case "PageBlocksLiveShows":
+      return <LiveShows data={block} />;
+    case "PageBlocksShopByCollection":
+      return <ShopByCollection data={block} />;
+    case "PageBlocksAppBanner":
+      return <AppBanner data={block} />;
+    case "PageBlocksWebstoreFooter":
+      return <WebstoreFooter data={block} />;
     default:
       return null;
   }

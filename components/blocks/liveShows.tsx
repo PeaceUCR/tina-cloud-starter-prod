@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Section } from "../util/section";
+import { Section } from "../layout/section";
 import { useTheme } from "../layout";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksLiveShows } from "../../tina/__generated__/types";

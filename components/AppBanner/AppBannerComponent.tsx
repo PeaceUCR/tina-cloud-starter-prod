@@ -1,6 +1,4 @@
-import googlePlay from "../../public/googlePlay.svg";
-import appStore from "../../public/appStore.svg";
-import Image from "next/image";
+
 import { tinaField } from "tinacms/dist/react";
 
 const AppBannerComponent = ({config}) => {

@@ -4,6 +4,11 @@ import { contentBlockSchema } from "../../components/blocks/content";
 import { testimonialBlockSchema } from "../../components/blocks/testimonial";
 import { featureBlockSchema } from "../../components/blocks/features";
 import { webstoreHeaderBlockSchema } from "../../components/blocks/webstoreHeader";
+import { appBannerBlockSchema } from "../../components/blocks/appBanner";
+import { featureProductsBlockSchema } from "../../components/blocks/featureProducts";
+import { liveShowsBlockSchema } from "../../components/blocks/liveShows";
+import { shopByCollectionBlockSchema } from "../../components/blocks/shopByCollection";
+import { webstoreFooterBlockSchema } from "../../components/blocks/webstoreFooter";
 
 const Page: Collection = {
   label: "Pages",
@@ -44,7 +49,12 @@ const Page: Collection = {
         featureBlockSchema,
         contentBlockSchema,
         testimonialBlockSchema,
-        webstoreHeaderBlockSchema
+        webstoreHeaderBlockSchema,
+        appBannerBlockSchema,
+        featureProductsBlockSchema,
+        liveShowsBlockSchema,
+        shopByCollectionBlockSchema,
+        webstoreFooterBlockSchema
       ],
     },
   ],
