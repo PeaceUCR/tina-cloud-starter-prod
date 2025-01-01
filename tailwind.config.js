@@ -1,11 +1,14 @@
-import colors from "tailwindcss/colors";
-import { fontFamily } from "tailwindcss/defaultTheme";
+const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}"],
+  mode: "jit",
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   darkMode: "class",
-  safelist: ["dark", "light"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -100,9 +103,11 @@ module.exports = {
         "-1": "-1",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        nunito: ["var(--font-nunito)", ...fontFamily.sans],
-        lato: ["var(--font-lato)", ...fontFamily.sans],
+        nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
+        lato: ["Lato", ...defaultTheme.fontFamily.sans],
+
+        'inter': ['Inter'],
+        'thicccboi': ['THICCCBOI'],
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -222,10 +227,35 @@ module.exports = {
           },
         },
       }),
+
+
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      aspectRatio: {
+        '9/16': '9 / 16',
+      },
+      colors: {
+        // primary: '#00A3FF',
+        // secondary: '#1E2749',
+        // Using modern `rgb`
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+      },
+      width: {
+        '112': '28rem',
+      }
     },
   },
   variants: {
     extend: { typography: ["tint", "dark", "primary"] },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')
+  ],
 };
