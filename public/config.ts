@@ -1,0 +1,2 @@
+const NEXT_PUBLIC_APP_ENV = 'DEV';
+// const NEXT_PUBLIC_APP_ENV = 'LOCAL';
