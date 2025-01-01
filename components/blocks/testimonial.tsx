@@ -9,7 +9,7 @@ import StoreNavigation from "../StoreNavigation/StoreNavigation";
 export const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   return (
     <Section>
-      <StoreNavigation config={data}/>
+      <div>Hello Testimonial</div>
     </Section>
   );
 };
