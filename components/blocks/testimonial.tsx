@@ -10,6 +10,7 @@ export const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   return (
     <Section>
       <div>Hello Testimonial</div>
+      <StoreNavigation config={data}/>
     </Section>
   );
 };
