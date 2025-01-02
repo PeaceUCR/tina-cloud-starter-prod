@@ -2,6 +2,7 @@
 title: Tina Cloud Starter
 blocks:
   - _template: webstoreHeader
+  - _template: hero
   - _template: featureProducts
   - _template: liveShows
   - _template: shopByCollection
