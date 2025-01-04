@@ -1,16 +1,18 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - _template: webstoreHeader
-  - _template: hero
+  - topbar: This Big Text is Totally Awesome
+    logo:
+      src: /logo.svg
+      alt: BIy Social
+    _template: webstoreHeader
+  - text: ''
+    text2: ''
+    _template: hero
   - _template: featureProducts
   - _template: liveShows
   - _template: shopByCollection
   - _template: appBanner
   - _template: webstoreFooter
-  - quote: Hello ping
-    author: Phil Karlton
-    color: primary
-    _template: testimonial
 ---
 

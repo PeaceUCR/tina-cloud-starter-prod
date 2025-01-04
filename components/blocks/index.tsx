@@ -3,7 +3,6 @@ import { Page, PageBlocks } from "../../tina/__generated__/types";
 import { Hero } from "./hero";
 import { Content } from "./content";
 import { Features } from "./features";
-import { Testimonial } from "./testimonial";
 import { WebstoreHeader } from "./webstoreHeader";
 import { WebstoreFooter } from "./webstoreFooter";
 import { AppBanner } from "./appBanner";
@@ -35,8 +34,6 @@ const Block = (block: PageBlocks) => {
       return <Content data={block} />;
     case "PageBlocksFeatures":
       return <Features data={block} />;
-    case "PageBlocksTestimonial":
-      return <Testimonial data={block} />;
     case "PageBlocksWebstoreHeader":
       return <WebstoreHeader data={block} />;
     case "PageBlocksFeatureProducts":

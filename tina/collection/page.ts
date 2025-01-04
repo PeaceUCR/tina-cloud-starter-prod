@@ -1,9 +1,8 @@
 import type { Collection } from "tinacms";
 import { heroBlockSchema } from "../../components/blocks/hero";
 import { contentBlockSchema } from "../../components/blocks/content";
-import { testimonialBlockSchema } from "../../components/blocks/testimonial";
-import { featureBlockSchema } from "../../components/blocks/features";
 import { webstoreHeaderBlockSchema } from "../../components/blocks/webstoreHeader";
+import { featureBlockSchema } from "../../components/blocks/features";
 import { appBannerBlockSchema } from "../../components/blocks/appBanner";
 import { featureProductsBlockSchema } from "../../components/blocks/featureProducts";
 import { liveShowsBlockSchema } from "../../components/blocks/liveShows";
@@ -48,7 +47,6 @@ const Page: Collection = {
         //@ts-ignore
         featureBlockSchema,
         contentBlockSchema,
-        testimonialBlockSchema,
         webstoreHeaderBlockSchema,
         appBannerBlockSchema,
         featureProductsBlockSchema,
