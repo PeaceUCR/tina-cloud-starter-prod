@@ -47,76 +47,12 @@ export const heroBlockSchema: Template = {
   ui: {
     previewSrc: "/blocks/hero.png",
     defaultItem: {
-      tagline: "Here's some text above the other text",
-      headline: "This Big Text is Totally Awesome",
-      text: "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.",
       image: {
-        src: '/signIn.jpg'
+        src: '/uploads/1_b19f7e3b-a822-4977-9103-9ceac0be3c19_2000x.webp'
       }
     },
   },
   fields: [
-    {
-      type: "string",
-      label: "Tagline",
-      name: "tagline",
-    },
-    {
-      type: "string",
-      label: "Headline",
-      name: "headline",
-    },
-    {
-      label: "Text-1",
-      name: "text",
-      type: "rich-text",
-    },
-    {
-      type: "rich-text",
-      label: "Text-2",
-      name: "text2",
-    },
-    {
-      label: "Actions",
-      name: "actions",
-      type: "object",
-      list: true,
-      ui: {
-        defaultItem: {
-          label: "Action Label",
-          type: "button",
-          icon: true,
-          link: "/",
-        },
-        itemProps: (item) => ({ label: item.label }),
-      },
-      fields: [
-        {
-          label: "Label",
-          name: "label",
-          type: "string",
-        },
-        {
-          label: "Type",
-          name: "type",
-          type: "string",
-          options: [
-            { label: "Button", value: "button" },
-            { label: "Link", value: "link" },
-          ],
-        },
-        {
-          label: "Icon",
-          name: "icon",
-          type: "boolean",
-        },
-        {
-          label: "Link",
-          name: "link",
-          type: "string",
-        },
-      ],
-    },
     {
       type: "object",
       label: "Image",

@@ -383,6 +383,21 @@ const MobileSubMenu = ({subCollections}) => {
 let showingStatus = {};
 
 export default function StoreNavigation({config}) {
+    console.log('config.color', config.color);
+    const sectionColor = {
+        blue: "text-white bg-blue-500 bg-gradient-to-br from-blue-500 to-blue-600",
+        teal: "text-white bg-teal-500 bg-gradient-to-br from-teal-500 to-teal-600",
+        green:
+          "text-white bg-green-600 bg-gradient-to-br from-green-600 to-green-700",
+        red: "text-white bg-red-500 bg-gradient-to-br from-red-500 to-red-600",
+        pink: "text-white bg-pink-500 bg-gradient-to-br from-pink-500 to-pink-600",
+        purple:
+          "text-white bg-purple-500 bg-gradient-to-br from-purple-500 to-purple-600",
+        orange:
+          "text-white bg-orange-500 bg-gradient-to-br from-orange-500 to-orange-600",
+        yellow:
+          "text-white bg-yellow-500 bg-gradient-to-br from-yellow-500 to-yellow-600",
+    };
     const [open, setOpen] = useState(false);
     const [collectionData, setCollectionData] = useState([]);
     const [isAnonymous, setIsAnonymous] = useState(true);
@@ -620,7 +635,7 @@ export default function StoreNavigation({config}) {
     }, []);
 
     return (
-        <div className="bg-white">
+        <div>
             {/* Mobile menu */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -724,7 +739,7 @@ export default function StoreNavigation({config}) {
                 </nav>
             </header>
 
-            <header className="relative isolate z-10 bg-white" ref={headerRef}>
+            <header className="relative isolate z-10" ref={headerRef}>
                 {isLive &&
                     <a href="/live" className="cursor-pointer block hover:opacity-90" style={{
                         backgroundColor: '#F23030'
@@ -768,7 +783,7 @@ export default function StoreNavigation({config}) {
                     </div>
                 </div>}
                 {/* Secondary navigation */}
-                <div className="bg-white">
+                <div className={`${config.color ? sectionColor[config.color] : ''}`}>
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="border-b border-gray-200" style={{
                             borderBottomWidth: '1px'

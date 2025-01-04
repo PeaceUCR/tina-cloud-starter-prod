@@ -5,9 +5,10 @@ blocks:
     logo:
       src: /logo.svg
       alt: BIy Social
+    color: red
     _template: webstoreHeader
-  - text: ''
-    text2: ''
+  - image:
+      src: /uploads/1_b19f7e3b-a822-4977-9103-9ceac0be3c19_2000x.webp
     _template: hero
   - _template: featureProducts
   - _template: liveShows

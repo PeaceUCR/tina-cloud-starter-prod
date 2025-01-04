@@ -5,10 +5,11 @@ import { tinaField } from "tinacms/dist/react";
 import { Section } from "../layout/section";
 import { Container } from "../layout/container";
 import StoreNavigation from "../StoreNavigation/StoreNavigation";
+import { ColorPickerInput } from "../../tina/fields/color";
 
 export const WebstoreHeader = ({ data }: { data: PageBlocksWebstoreHeader }) => {
   return (
-    <Section>
+    <Section color={data.color}>
       <StoreNavigation config={data}/>
     </Section>
   );
@@ -27,7 +28,8 @@ export const webstoreHeaderBlockSchema: Template = {
       },
 
       // TODO default value NOT working and image clickable ONLY when it has value!
-      topbar: "This Big Text is Totally Awesome"
+      topbar: "This Big Text is Totally Awesome",
+      color: 'white'
     },
   },
   fields: [
@@ -57,6 +59,14 @@ export const webstoreHeaderBlockSchema: Template = {
           type: "string",
         },
       ],
+    },
+    {
+      type: "string",
+      label: "Color",
+      name: "color",
+      ui: {
+        component: ColorPickerInput,
+      },
     },
   ],
 };
