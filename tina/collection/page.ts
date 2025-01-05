@@ -43,15 +43,15 @@ const Page: Collection = {
         visualSelector: true,
       },
       templates: [
-        heroBlockSchema,
         //@ts-ignore
-        featureBlockSchema,
-        contentBlockSchema,
+        // featureBlockSchema,
+        // contentBlockSchema,
         webstoreHeaderBlockSchema,
-        appBannerBlockSchema,
+        heroBlockSchema,
         featureProductsBlockSchema,
         liveShowsBlockSchema,
         shopByCollectionBlockSchema,
+        appBannerBlockSchema,
         webstoreFooterBlockSchema
       ],
     },

@@ -20,7 +20,7 @@ export const webstoreHeaderBlockSchema: Template = {
   name: "webstoreHeader",
   label: "WebstoreHeader",
   ui: {
-    previewSrc: "/blocks/testimonial.png",
+    previewSrc: "/blocks/hero.png",
     defaultItem: {
       logo: {
         src: '/logo.svg',
