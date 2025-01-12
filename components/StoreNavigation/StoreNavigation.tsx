@@ -196,9 +196,8 @@ const AccountDropDown = () =>  {
                                     {active ?
                                         <ManageProfileActiveImage fill={`rgb(${typeof window !== "undefined" ? window.getComputedStyle(document.body).getPropertyValue('--color-primary').split(' ').join(',') : ''})`}/>
                                         :
-                                        <Image
-                                            priority
-                                            src={manageProfileImage}
+                                        <img
+                                            src={manageProfileImage.src}
                                             alt="Manage Profile"
                                             className="h-5 w-5 mr-2"
                                         />
@@ -221,9 +220,8 @@ const AccountDropDown = () =>  {
                                     {active ?
                                         <RecentOrderActiveImage fill={`rgb(${typeof window !== "undefined" ? window.getComputedStyle(document.body).getPropertyValue('--color-primary').split(' ').join(',') : ''})`}/>
                                         :
-                                        <Image
-                                            priority
-                                            src={recentOrderImage}
+                                        <img
+                                            src={recentOrderImage.src}
                                             alt="Recent Orders"
                                             className="h-5 w-5 mr-2"
                                         />
@@ -246,9 +244,8 @@ const AccountDropDown = () =>  {
                                     {active ?
                                         <SettingsActiveImage fill={`rgb(${typeof window !== "undefined" ? window.getComputedStyle(document.body).getPropertyValue('--color-primary').split(' ').join(',') : ''})`}/>
                                         :
-                                        <Image
-                                            priority
-                                            src={settingsImage}
+                                        <img
+                                            src={settingsImage.src}
                                             alt="Settings"
                                             className="h-5 w-5 mr-2"
                                         />
@@ -272,9 +269,8 @@ const AccountDropDown = () =>  {
                                     {active ?
                                         <SignOutActiveImage fill={`rgb(${typeof window !== "undefined" ? window.getComputedStyle(document.body).getPropertyValue('--color-primary').split(' ').join(',') : ''})`}/>
                                         :
-                                        <Image
-                                            priority
-                                            src={signOutImage}
+                                        <img
+                                            src={signOutImage.src}
                                             alt="Sign out"
                                             className="h-5 w-5 mr-2"
                                         />

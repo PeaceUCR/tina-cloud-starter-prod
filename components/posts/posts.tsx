@@ -50,7 +50,7 @@ export const Posts = ({ data }: { data: PostsType[] }) => {
             </div>
             <div className="flex items-center">
               <div className="flex-shrink-0 mr-2">
-                <Image
+                <img
                   width={500}
                   height={500}
                   className="h-10 w-10 object-cover rounded-full shadow-sm"

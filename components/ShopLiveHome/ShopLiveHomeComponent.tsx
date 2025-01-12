@@ -158,8 +158,7 @@ const ShopLiveHomeComponent = ({config}) => {
                             }
                         }} className='cursor-pointer hover:opacity-75'>
                             <div className="mr-2 ml-2 relative h-56 overflow-hidden rounded-md group-hover:opacity-75 lg:h-72 xl:h-80">
-                                <Image
-                                    fill={true}
+                                <img
                                     src={show.thumbnailUrl || 'https://picsum.photos/226/378'}
                                     className="h-full w-full object-cover object-center"
                                 />
