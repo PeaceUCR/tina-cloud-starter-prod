@@ -412,6 +412,19 @@ export default function StoreNavigation({config}) {
         ]);
     }
 
+    const [totalWidth, setTotalWidth] = useState(0);
+    const checkIfCollectionOverflow = () => {
+        if (headerRef.current) {
+            const slides = headerRef.current.querySelectorAll(".slick-slide");
+            console.log('slides', slides);
+            let widthSum = 0;
+            slides.forEach((slide) => {
+                widthSum += slide.offsetWidth;
+            });
+            setTotalWidth(widthSum);
+            console.log('totalWidth', widthSum);
+        }
+    }
     const [levelCollections, setLevelCollections] = useState([]);
 
     const processV2Response = (response) => {
@@ -444,6 +457,10 @@ export default function StoreNavigation({config}) {
             ...result
         ]);
         localStorage.setItem(THREE_LEVEL_COLLECION, JSON.stringify(response));
+
+        setTimeout(() => {
+            checkIfCollectionOverflow();
+        }, 1000);
     }
     const fetchCollectionV2 = async () => {
         const {data: collectionData} = await client.query({
@@ -839,7 +856,7 @@ export default function StoreNavigation({config}) {
 
                                         </Slider>
                                     </div>
-                                    {levelCollections.length > 4 && <ArrowRightIcon
+                                    {totalWidth > (width > 1280 ? 1280 - 460 : width - 460) && <ArrowRightIcon
                                         onClick={() => sliderRef.slickNext()}
                                         className={classNames('!h-5 !w-5 ml-2', currentSlide === levelCollections.length - 1 ? 'opacity-0 cursor-not-allowed' : 'cursor-pointer !text-secondary hover:!text-primary')}
                                         aria-hidden="true"
