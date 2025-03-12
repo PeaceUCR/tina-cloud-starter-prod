@@ -1,9 +1,9 @@
 ---
-title: Tina Cloud Starter
+title: Webstore Prod
 blocks:
   - topbar: This Big Text is Totally Awesome
     logo:
-      src: /logo.svg
+      src: /uploads/logo.svg
       alt: BIy Social
     color: red
     _template: webstoreHeader
