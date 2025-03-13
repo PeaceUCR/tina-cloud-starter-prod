@@ -8,7 +8,7 @@ blocks:
     color: red
     _template: webstoreHeader
   - image:
-      src: /uploads/1_b19f7e3b-a822-4977-9103-9ceac0be3c19_2000x.webp
+      src: /uploads/prod-poster.webp
     _template: hero
   - _template: featureProducts
   - _template: liveShows
