@@ -2,20 +2,52 @@
 export const ENV: 'LOCAL' | 'DEV' | 'QA' | 'STAGING' = process.env.NEXT_PUBLIC_ENV || 'DEV';
 console.log({ENV});
 
-const isServer = typeof window === 'undefined';
-if (!isServer) {
-    console.log('NOT isServer');
-    if (!localStorage.getItem("tinacms-auth")) {
-        console.log('SET tinacms-auth');
-        localStorage.setItem("tinacms-auth", JSON.stringify(
-          {
-              "id_token": "eyJraWQiOiI5YlN2a0JiUjlGWWxmaU02b2I5c2FGMElva2NXczh2S29SY0lCbnl6M1VvPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiMjlmYWI2NS1jODUwLTRmOWEtYjY3Zi0wYWI3ODc4MGQ3NTQiLCJhdWQiOiI1YjhmbWh2MWczNWtidWg4M3ZkYmF1ZHJuaCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjA0NWMwYjJhLWNlMTItNGQzYS1iMjc5LTI5OTVkZjE3YTZiNSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzI4MDUzMDMxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV82YWhpU2hTVWMiLCJjb2duaXRvOnVzZXJuYW1lIjoiYjI5ZmFiNjUtYzg1MC00ZjlhLWI2N2YtMGFiNzg3ODBkNzU0IiwiZXhwIjoxNzI4MDU2NjMxLCJpYXQiOjE3MjgwNTMwMzEsImVtYWlsIjoicGluZ0B0cnlidXlzb2NpYWwuY29tIn0.jx3_gwVZ6LLK5kAsKjzDrIU0R0_c9cHvJFiYCotg1lplC3jdzy6y3jL7KNVhD4q76beV1ltYBLOjFqTmylMwW3lBAsOXTRwzms6EkKbJqmch-exogrKFLCQAQJZDeUM4Dqu8dF7-rXgVl2nqk73KR4ZVpF0FeCPotT0RoTFjf7JqbDV-moiRSxavMQoDz2TcMsXbzmw92v0T-5VmN5CR52P45hJyU6TIH0jtFiRdBDljq8ChAelgXNDZ59a3KaP2eqgl4YAHGh70zvCG3SGKZh_GQ1w8g-d1lAcj0stYqwdG61zzBy30m8IZo1NOGM01lyv9KM3UZD4XnLE8f9reMw",
-              "access_token": "eyJraWQiOiJ1dGVYWlBUOTJnYmNaWDQwY3Rhbk1MUUJ3WTVcLzlMT0pnWEI0d1FVRzg3TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiMjlmYWI2NS1jODUwLTRmOWEtYjY3Zi0wYWI3ODc4MGQ3NTQiLCJldmVudF9pZCI6IjA0NWMwYjJhLWNlMTItNGQzYS1iMjc5LTI5OTVkZjE3YTZiNSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3MjgwNTMwMzEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzZhaGlTaFNVYyIsImV4cCI6MTcyODA1NjYzMSwiaWF0IjoxNzI4MDUzMDMxLCJqdGkiOiI3NTQ4NGQ4ZS00YTliLTQ4MDEtYjlkYy1kZDg5M2Y2MjJmYWMiLCJjbGllbnRfaWQiOiI1YjhmbWh2MWczNWtidWg4M3ZkYmF1ZHJuaCIsInVzZXJuYW1lIjoiYjI5ZmFiNjUtYzg1MC00ZjlhLWI2N2YtMGFiNzg3ODBkNzU0In0.lFUiSsinSrqs-bX6-okbX6xzrNbrHlF_4WQAFMigeGI_aUCCMmoRAh7btDpzajxGVuQs9D38DL9lso217vLEgsSiP0VZQG9bUMTvRFYsPRbeGC807IJBuiIP1EJA7GYRFlmTUHjHgAN2FVgMgNYzUYmqT08RjQxJg7Pv1hv0Q6Pi_1OHplzZT2EypqN1syxFh5E0edHxjX8dEz6cE48R2_rHeF1MAP9XOTwaLrJBPKJgMwKIxj2V_9KJneDVERyfGhtKfZT1lhbn832_p6Ka4HnxTqQPHwIrbcPpf2q6jkTCdFopI52r-tZh_n4UOyEOkkVmaKZjE41Htx9rT2jphA",
-              "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.Kb0d9-R4uHLGZzIiI8dLsFVK0rgMSaxSYRdGdlkO2gkwaMALNiaEIx-8dWRJku4JbBohNliwe4kJc5LtqxOBIz0FmcOA3leo41WuGx1XuB_Wp3ANRNooPwci2_IX_gd6UObiKHCmYEzmgd4mJcUmgJQGBeu0ETVzZ4ghPi6ReuNcOXlXIIOrcGM8CTqV4MIDcMgVaoqur93aTkglxTYyukegaZULi2B0Ryx4dWjw5yVLEOiKnEItFMwRyt5pzPal1Xabksyz8RMH86ZkpP1nkXfLArTl6JiqbT-Ns8PC5556zARpOG3-lztVmJ_2vkhbWjuItswQ0anR4emZ5ppa2A.CPFadOdgKEf6oRvm.ey1sCW0FDiwtnRTb9wlJlWnjPSsliWRI7OvIEXqNSTs9nOPBk8xyZQht9DvnWxEcJc2yMBtfQ31iLA7xA7dEUgkOoffB5e5H9IOymyOONBXbPsZmdA7V9gHizk7vfBF25Kr1y2GbeMxW40dVorkt1v1yLIWpSfuxNkNOn8z92ZdaFrTyXZXkfRSkyqOakQRVuSCQuQIjRa0x4LpCGxjWmST5ddXYwdQmNPL38xYnOywTfZRJe1EGGEGckIbKNAdy_KKU9vNC-gggiFGKoV9nLLz17whuS7funkoEz0h48aHBYvQuVV8eBeBFxlRjDBDbi2AkKTKTzcyZ3O1PznXbkWWZyz552VqFR2bnUyocub6DLR0K0tWQwjh2i47EG7ztLcFSbOyWsJvysDjAygW8mnTHqqdzaYRs78nQopKoVAGpI3kjbjY4SYTq1yHtMdcxuJYWXLLwCFLf7o4a2g0knKINy6f7FvrePnxnmz00RlHh_UIDYsQ-Irdw4ZFxPqI5YU2BnlvK6vlXn7Ny1N5P5qKCOeMVOZYypmOBnanmovM4donBzOVHOwokhw_6wFz8-NZhhBTTobNRcXjXHzWnWfqOAcpza1aeachT9MNWiUA6rvfv15tKqBwlndu-ybkU8c-7jQpogXax27LTWu1ITM-H4YlKuaJaE2u11ewYjS6cuy_mrP3ZtW96bly0vpX77O1fV_7T03G5rqipuJRpsjXZ5QTRFjdBcjsarol8sviujM4YshztoDv-xXv3xDPD2oQO6AdvJwUSELvcQ9H6C5NPK7kA9TRgZAplGhRac0zphapw-v8VG-v-iJkbqPhteLFlByruyVNy6MAwKw70vcE9Hlp1DfGRlFLL9ClnErwGneK4neVcLEyAk44bHNogtbIZYN8swEZ1EBva1em_xn5BNwHipbHoCqumF-FRRGtaJ1B2S5pJexrHRFtOvZ3--VLCK9HaFpDPyBaWuPjLFcTrUzc5qaghUmp0ABCCIrlFx_F23Lg8laE3MnxRX70U64Ez1bH6HiC3Okf-SSe7_17EsytemfC5FqIyu7gjMPADV2JV982waubde7whtqziw32QJKwUFitkOJrcorWI2ujFUGmKr_9o1qG4KxTGpFcYAvtWhDVlyRKM5mvDbxvJLXSeGdEmxerA2ZD6hRTrhckST0G4yk--rb9NhYT8WH8uj9zbO6C_oB44F9Cepv9L77fJfD0cBjq7OHwazY6Yb5MZVr4skaYFIu7Exz2ghVUOmIPLGi6KtIemzaZt4PxiFD9L6_tWAVDF2KhKnzijcyD241EGx1iZSnjmlAe0bfper-4rX_0HMqqflQXMxw.7Wi85tYcOpWZ1Xf-5gGy6Q"
-          }
-        ))
+const setupAuthToken = () => {
+    const isServer = typeof window === 'undefined';
+    if (!isServer) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlToken = urlParams.get('token');
+        console.log('NOT isServer token', urlToken);
+        if (urlToken) {
+            // TODO clear token if refresh request failed status not 200!
+            // TODO during the browser refresh operation, refresh_token NOT change!
+            const localAuthString = localStorage.getItem("tinacms-auth");
+            const AUTH_TOKEN = JSON.stringify(
+              {
+                  "id_token": "eyJraWQiOiI5YlN2a0JiUjlGWWxmaU02b2I5c2FGMElva2NXczh2S29SY0lCbnl6M1VvPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiMjlmYWI2NS1jODUwLTRmOWEtYjY3Zi0wYWI3ODc4MGQ3NTQiLCJhdWQiOiI1YjhmbWh2MWczNWtidWg4M3ZkYmF1ZHJuaCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJldmVudF9pZCI6IjE1NmQzMGU1LTk5YjUtNGY4MS05MGVkLTRiYjc2NDRlYTIzMCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzM5NDYwMDUxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV82YWhpU2hTVWMiLCJjb2duaXRvOnVzZXJuYW1lIjoiYjI5ZmFiNjUtYzg1MC00ZjlhLWI2N2YtMGFiNzg3ODBkNzU0IiwiZXhwIjoxNzQyMDE0NTA4LCJpYXQiOjE3NDIwMTA5MDgsImVtYWlsIjoicGluZ0B0cnlidXlzb2NpYWwuY29tIn0.TUiearQc4k7M6h2D5aPebOaDbImuWEFBC_ZRwG5ozChX1-W0IuaVryUx1Q99-yN5Pui3vhKd82cIXd1R5aR80V7fdLN3oz1t5muSppS2ucDZSGS4fapEgdr0_jdMAS8Gerwq9Xj6g32CT-SVYyedgMQin7uZP6cyeIfQHpFwH-KB3TOD7CF0NYfOGEPDmykMgYHIVhda4RGwR6b8w_yI0VW6IV8UP1z6KcGtr9WdYnh0cnew28bgVv5hRj-NY-eKeBJY39yz_pi9b60KquZVSMR9_oUYolcEoH3ESu8Z3yUTFDQ7z3j9uzzglW5S-n5iAe9qqmM1J_SqVazVC0AuPg",
+                  "access_token": "eyJraWQiOiJ1dGVYWlBUOTJnYmNaWDQwY3Rhbk1MUUJ3WTVcLzlMT0pnWEI0d1FVRzg3TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiMjlmYWI2NS1jODUwLTRmOWEtYjY3Zi0wYWI3ODc4MGQ3NTQiLCJldmVudF9pZCI6IjE1NmQzMGU1LTk5YjUtNGY4MS05MGVkLTRiYjc2NDRlYTIzMCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3Mzk0NjAwNTEsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzZhaGlTaFNVYyIsImV4cCI6MTc0MjAxNDUwOCwiaWF0IjoxNzQyMDEwOTA4LCJqdGkiOiI2NjU0ZTQxOC04NGNhLTRmZTItOGJlMy01MmY0ZDI4ZWIyMWEiLCJjbGllbnRfaWQiOiI1YjhmbWh2MWczNWtidWg4M3ZkYmF1ZHJuaCIsInVzZXJuYW1lIjoiYjI5ZmFiNjUtYzg1MC00ZjlhLWI2N2YtMGFiNzg3ODBkNzU0In0.0OuRUvnlMqFp7sgWyWCq2L38YUP9840gMVfUhfAav3MnXkW-08qr-m-RGpMtxCidauKAAXlCT2uX08Q1IghAYW-NIwHoVbT6mpAzzO6nexddnL4L6N-NPUQ49gdFLkkShcP2zpYCUZb_ZQEt-H3V2-BF8PqJ76n-h7fwYKwCCCooY8vwgsff2WYIGdh2zNDcxLx9bKPOYrgPONTieHTW3S0TMdHxKQDjTBwCRId5TgUmHma4s-qSDzkhf849L3DJ-6Sc9f9O28IWYhoaVaPXAk-0EVv4-bHBndUnktxvUuHv0S6vTAvftDv8zTRYMosueQrsSYy3BsLO4VTfn6B-lw",
+                  "refresh_token": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.O-oskanlFRerMzqR6oBgnzigVtD4ylit-SfYzDFDBmUt1870XP9qV7uX7jF-Dz3oNarXUHgQk8FQQ-FCp1J_-brsV8rB9OJshHVA0JKKvjswMV4ANByjJEd3PfGR87neDJ3QqYPCD71AMRBUCCSCoPf_QdeBWcKrFtYrlab3FRNTwhY8vUNhZuseWezIZobHpbInHRri5Ksc2DQXjzZgRTCUbYU9xGsu54JqHXynVsMhrpkabotrWHrAh8GlHsNct_w8BWsXTNIcr6tMYaVUtbwq8O2c7__l9n5gK1eGG_dcCzirLv2ASlDxivdcoVPBm5pZgRrCrnsnk7-rw9X7hg.YSBFecXPJ3cFV4kT.AFv7PnO26KTyruDO7USTKnHSf7vjRTwtEWcI8SN24Ltw-0GtpsMScv-8C_lW-zYdWswI9u_YlbYx-X10YNzD4ftEeH2IVKADzvGntTmNyWi3UiWkq0XugqUS2sJ-pmlMzP2nEKdjGIIXS6Ybu4HRBvZcbjYQfZvTJ8FXqwnsB_k0c74aCA7Tlqtx6bmr4RBZa0jQRhkselBYXdTweqZe6JHnQMoy5Jde4UuRu7qztKp-AgEH-qlQqK-ZkL6OJv5lg9jH4MSKdkTIdYLvoVSuzLjK6sa1aiiea4k7DeGU97ni9D_OzW9YUjszkJfcy7xFi_VXIG1enTql4ehvr5zXyyVvLmx9_AV2V7jS17w_eGevop5-pryOBHkhc4BiVprWmoaqm1YE9mdyH3dqNvT2sFWRSr-foUs05wX7hBF1XRQ4sVoVmK2PmAtLkIAd2aX_SkVK0lPavmuq2uDMx35Ro1F9T5Ws_NQa7dya9k_-fmtbFiAbfrsBi6eRZSoCrHpHAyzkjFVOp405X0MRM_vnHxkCWmwBg7WJGjpEQg0cG6D9PCTnZ8Hu_c7yJAF7YueSKdWTY8NS2bIL1hmH5qdKrKdB4RHXNd874f0avVm17601sA0yk04ctszz_2YVpobGlXukWom1eU_EG9dAaj40P4xR2RwO2v00zI9MYNY2K-cKkBBcml66AS6L3XpLCud8KqJXVmdTxCTrm_T1PX8CD-KWnxT29_ZiVoRydCHHwfVAUAnbG-z5CSVdhWOf2tw42omDK2BhuDHkyEdg1yz8eQ1vMZs5qZAbdlL585Dtnu8BjKIjCZ-DMe-Ym3o1zfbLe4md3AUC7SRoZw4G1jMuiu43ZosEssJtwSi0UP63n-nnbRKwPzUrnE5yhWma6lQmSDmVD03CGRFrjGJrXa8UQGRL--FwK91tzdaByBhbbCjagOSLrUJAEPx-EEF7JVm7lWG_-CdFVD9VcC9ilt-F19-fn19AYHHtdQJ0Y7t7GKZxoMWcTSMflqYfWjVzwKIQywIZVpI70yU_ywemufsX_npZbWhIZcTkYD_Uk0VB2SjJbay7oGJpjqN8KmH3ttnlJ0X_b2SmU-RaVze4_SihSf58dy9xEjYm2kp0HGRmEVQoydn_afyjHm-8-bzpN0pMAB8EzdfrWyXDNzgjnb0cdVRqahClWQrAW5iDjJCHHvhe1ZCf9_XCfqI1srRbWyH4UY6yGHuX5US4wIAEptp8HOUT4Puy8lBc8EoLiqSGffoxLQjzDuZbI6-kAfsM0AOzV2cpdIxO5gLVUcsNK28D-_gvErGLJdCTZTiqmUH-qEcgkP1QWu3plKhv-kroRg.MuPltDO1HCwZfBfVvcQsBg"
+              }
+            );
+            if (localAuthString) {
+                const parsed = JSON.parse(localAuthString);
+                if (parsed && parsed['access_token']) {
+                    const decoded = jwtDecode(parsed['access_token']);
+                    console.log('decoded', decoded);
+                    const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+
+                    // Get the expiration time from the decoded token
+                    const expirationTime = decoded.exp;
+                    console.log('expired hrs:', Math.floor((currentTime - expirationTime) / (60 * 60)));
+
+                    // Check if the token has expired more than one week ago
+                    const oneWeekInSeconds = 7 * 24 * 60 * 60; // 1 week in seconds
+                    const isExpiredMoreThanOneWeek = currentTime - expirationTime > oneWeekInSeconds;
+
+                    if (isExpiredMoreThanOneWeek) {
+                        console.log('isExpiredMoreThanOneWeek SET tinacms-auth');
+                        localStorage.setItem("tinacms-auth", AUTH_TOKEN);
+                    }
+                }
+            } else {
+                console.log('SET tinacms-auth');
+                localStorage.setItem("tinacms-auth", AUTH_TOKEN);
+            }
+        }
     }
 }
+
+setupAuthToken()
 
 const bsApiEndpoint = {
     LOCAL: 'http://192.168.0.103:3001/graphql/',

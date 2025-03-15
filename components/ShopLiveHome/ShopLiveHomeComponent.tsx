@@ -115,7 +115,7 @@ const ShopLiveHomeComponent = ({config}) => {
                     desktop: {
                         breakpoint: {
                             max: 3000,
-                            min: 1024
+                            min: 1200
                         },
                         items: 5
                     },
@@ -128,7 +128,7 @@ const ShopLiveHomeComponent = ({config}) => {
                     },
                     tablet: {
                         breakpoint: {
-                            max: 1024,
+                            max: 1200,
                             min: 640
                         },
                         items: 2
