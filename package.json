@@ -52,6 +52,7 @@
     "firebase": "^10.7.0",
     "firebase-admin": "^11.11.1",
     "graphql": "15.8.0",
+    "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
     "mermaid": "^11.4.0",

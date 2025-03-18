@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 // @ts-ignore
 export const ENV: 'LOCAL' | 'DEV' | 'QA' | 'STAGING' = process.env.NEXT_PUBLIC_ENV || 'DEV';
 console.log({ENV});
